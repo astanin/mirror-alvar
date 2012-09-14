@@ -1,0 +1,36 @@
+# hack to setup environment runtime path
+if(WIN32)
+    set(ALVAR_PLUGIN_RUNTIME)
+    foreach(_path ${ALVAR_RUNTIME})
+        if(ALVAR_PACKAGE)
+            if(_path MATCHES "capture_plugin")
+                list(APPEND ALVAR_PLUGIN_RUNTIME ${_path})
+            endif(_path MATCHES "capture_plugin")
+        else(ALVAR_PACKAGE)
+            if(_path MATCHES "ALVAR")
+                list(APPEND ALVAR_PLUGIN_RUNTIME ${_path}/alvarplugins)
+            endif(_path MATCHES "ALVAR")
+        endif(ALVAR_PACKAGE)
+    endforeach(_path ${ALVAR_RUNTIME})
+
+    configure_file(cmake/path.bat.cmake ${CMAKE_BINARY_DIR}/path.bat)
+endif(WIN32)
+
+if(ALVAR_PACKAGE MATCHES sdk)
+    # install files for exported build environment
+    install(FILES CMakeLists.txt DESTINATION build)
+    install(FILES cmake/FindALVAR.cmake DESTINATION build/cmake)
+    install(FILES cmake/FindOpenCV.cmake DESTINATION build/cmake)
+    if(WIN32)
+        install(FILES cmake/path.bat.cmake DESTINATION build/cmake)
+    endif(WIN32)
+
+    # install generate scripts
+    if(WIN32)
+        install(FILES generate.bat DESTINATION build)
+        install(FILES generate_${ALVAR_COMPILER}.bat DESTINATION build)
+    else(WIN32)
+        install(FILES generate.sh DESTINATION build)
+        install(FILES generate_${ALVAR_COMPILER}.sh DESTINATION build)
+    endif(WIN32)
+endif(ALVAR_PACKAGE MATCHES sdk)
