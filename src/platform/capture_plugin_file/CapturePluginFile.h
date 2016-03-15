@@ -45,6 +45,8 @@
 
 #include "highgui.h"
 
+#include <opencv2/videoio.hpp>
+
 namespace alvar {
   
 /**
