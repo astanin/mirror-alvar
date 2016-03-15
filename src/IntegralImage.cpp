@@ -111,12 +111,12 @@ void IntegralImage::GetSubimage(const CvRect &rect, IplImage *sub) {
 	    for (IntIndex xx(rect.width, sub->width); xx.get() != xx.end(); xx.next(),xi++) {
 			//cout<<"res: "<<sum->height<<","<<sum->width<<" - ";
     	    //cout<<xi<<","<<yi<<": "<<rect.x<<","<<rect.y<<": "<<xx.get()<<","<<yy.get()<<endl;
-			CvRect r = {
+			CvRect r(
 				rect.x+xx.get(),
 				rect.y+yy.get(),
 				xx.get_next_step(),
 				yy.get_next_step()
-			};
+			);
             double ave = GetAve(r);
 
             //cvSet2D(sub, yi, xi, cvScalar(ave));
@@ -179,7 +179,7 @@ void IntegralGradient::Update(IplImage *gray) {
 	integy.Update(normaly);
 }
 void IntegralGradient::GetGradient(CvRect &rect, double *dirx, double *diry, int *count /*=0*/) {
-	CvRect r = {rect.x, rect.y, rect.width-1, rect.height-1};
+	CvRect r(rect.x, rect.y, rect.width-1, rect.height-1);
 	if (count) *dirx = integx.GetSum(r, count);
 	else *dirx = integx.GetSum(r);
 	*diry = integy.GetSum(r);
