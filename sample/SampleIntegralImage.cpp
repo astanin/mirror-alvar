@@ -77,7 +77,7 @@ void videocallback(IplImage *image)
     cvCreateTrackbar("t1", "Gradient", &t1, 255, NULL);
     cvCreateTrackbar("t2", "Gradient", &t2, 255, NULL);
     cvCanny(img_gray, img_canny, t1, t2);
-    CvRect r = {0,0,4,4};
+    CvRect r(0,0,4,4);
     for (r.y=0; r.y<img_canny->height-4; r.y++) {
         for (r.x=0; r.x<img_canny->width-4; r.x++) {
             if (img_canny->imageData[r.y*img_canny->widthStep+r.x]) {
