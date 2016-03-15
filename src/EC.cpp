@@ -24,6 +24,8 @@
 #include "EC.h"
 #include "Optimization.h"
 
+#include <opencv2/calib3d/calib3d_c.h>
+
 namespace alvar {
 
 struct ProjectParams
