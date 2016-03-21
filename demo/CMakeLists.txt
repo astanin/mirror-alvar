@@ -10,7 +10,6 @@ include_directories(${OPENSCENEGRAPH_INCLUDE_DIRS})
 # define demos in alphabetical order
 set(ALVAR_DEMOS
     Demo3DMarkerField
-    DemoFern
     DemoMarkerField
     DemoMarkerHide
     DemoModel2Marker

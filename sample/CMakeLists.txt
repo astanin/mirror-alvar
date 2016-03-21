@@ -18,7 +18,6 @@ set(ALVAR_SAMPLES
     SampleIntegralImage
     SampleLabeling
     SampleMarkerCreator
-    SampleMarkerlessCreator
     SampleMultiMarker
     SampleMultiMarkerBundle
     SampleOptimization
@@ -29,7 +28,6 @@ set(ALVAR_SAMPLES
 set(ALVAR_SAMPLES_GLUTVIEWER
     SampleMarkerDetector
     SampleMarkerHide
-    SampleMarkerlessDetector
     SamplePointcloud
 )
 

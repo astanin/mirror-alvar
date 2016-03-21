@@ -42,7 +42,6 @@ set(ALVAR_HEADERS
     Container3d.h
     Draw.h
     EC.h
-    FernImageDetector.h
     FernPoseEstimator.h
     FileFormat.h
     FileFormatUtils.h
@@ -77,7 +76,6 @@ set(ALVAR_SOURCES
     ConnectedComponents.cpp
     Draw.cpp
     EC.cpp
-    FernImageDetector.cpp
     FernPoseEstimator.cpp
     FileFormatUtils.cpp
     Filter.cpp
